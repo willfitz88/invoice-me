@@ -1,0 +1,9 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="invoices.length > 0 && !isLoading">
+  <mat-expansion-panel *ngFor="let invoice of invoices">
+    <mat-expansion-panel-header>
+      {{ invoice.invoiceNumber }} :  {{ invoice.client }}
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="invoices.length <= 0 && !isLoading">No invoices added yet!</p>

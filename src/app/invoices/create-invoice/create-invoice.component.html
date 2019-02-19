@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSaveInvoice()" *ngIf="!isLoading">
+
+    <mat-form-field>
+      <input matInput type="text" formControlName="invoiceNumber" placeholder="Invoice Number">
+      <mat-error *ngIf="form.get('invoiceNumber').invalid">Please enter an invoice number.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select formControlName="client" (selectionChange)="onClientSelect($event.value)" placeholder="Select Client">
+          <mat-option value="newclient">
+            Add new client
+          </mat-option>
+          <mat-option *ngFor="let client of clients" [value]="client.company">
+            {{client.company}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" type="submit">Save Invoice</button>
+  </form>
+
+</mat-card>

@@ -1,0 +1,25 @@
+<form [formGroup]="form" (submit)="onSaveClient()" *ngIf="!isLoading">
+
+  <mat-form-field>
+    <input matInput type="text" formControlName="fname" placeholder="First Name">
+    <mat-error *ngIf="form.get('fname').invalid">Please enter your name</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text" formControlName="lname" placeholder="Last Name">
+    <mat-error *ngIf="form.get('lname').invalid">Please enter your name</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text" formControlName="company" placeholder="Company">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text" formControlName="email" placeholder="Email">
+    <mat-error *ngIf="form.get('email').invalid">Please enter a contact email</mat-error>
+  </mat-form-field>
+
+
+
+  <button mat-raised-button color="accent" type="submit">Add Client</button>
+</form>
