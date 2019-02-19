@@ -71,7 +71,7 @@ export class ClientsService {
         client.id = id;
         this.clients.push(client);
         this.clientsUpdated.next([...this.clients]);
-        //this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       });
   }
 
